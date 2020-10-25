@@ -1,0 +1,47 @@
+.league {
+    margin: 25px 0;
+    padding: 8px;
+}
+
+.league h5 {
+    text-align: center;
+}
+
+.team-name {
+    display: flex;
+}
+
+h5 {
+    align-items: center;
+}
+
+.team-logo {
+    display: flex;
+    align-items: center;
+    max-width: 50px;
+    padding: 0;
+}
+
+.team-logo img {
+    width: 100%;
+}
+
+.card-image img {
+    max-width: 400px;
+    max-height: 253.719px;
+}
+
+.card {
+    padding: 20px;
+    min-height: 400px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card-content h6 {
+    font-weight: 700;
+    text-align: center;
+}

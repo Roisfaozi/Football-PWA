@@ -1,0 +1,15 @@
+{
+    "name": "Football information",
+    "short_name": "Info Football",
+    "description": "Premiere League Foootball app",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#00897B",
+    "theme_color": "#00897b",
+    "icons": [{
+        "src": "icon.png",
+        "size": "192x192",
+        "type": "image/png"
+    }]
+
+}
