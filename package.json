@@ -1,0 +1,24 @@
+{
+  "name": "Football-PWA",
+  "version": "1.0.0",
+  "main": "push.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Roisfaozi/Football-PWA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Roisfaozi/Football-PWA/issues"
+  },
+  "homepage": "https://github.com/Roisfaozi/Football-PWA#readme",
+  "dependencies": {
+    "web-push": "^3.4.4"
+  },
+  "devDependencies": {},
+  "description": ""
+}

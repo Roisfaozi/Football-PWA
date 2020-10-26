@@ -13,7 +13,7 @@ function saveTeams(team) {
             let tx = db.transaction('teams', 'readwrite')
             let store = tx.objectStore('teams')
             console.log(team)
-            store.add(team.result)
+            store.add(team)
             return tx.complete
         })
         .then(() => {
@@ -21,11 +21,25 @@ function saveTeams(team) {
         })
 }
 
+function deleteTeams(club) {
+    dbPromised
+        .then((db) => {
+            let tx = db.transaction('teams', 'readwrite')
+            let store = tx.objectStore('teams')
+            console.log(club)
+            store.delete(club.id)
+            return tx.complete
+        })
+        .then(() => {
+            console.log('article berhasil dihapus.')
+        })
+}
+
 function getAll() {
-    return new dbPromised((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         dbPromised
             .then((db) => {
-                const tx = db.transaction('teams', 'readwrite')
+                const tx = db.transaction('teams', 'readonly')
                 let store = tx.objectStore('teams')
                 return store.getAll()
             })

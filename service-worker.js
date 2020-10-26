@@ -1,4 +1,4 @@
-const CACHE_NAME = "football";
+const CACHE_NAME = "football-v1";
 var urlsToCache = [
     "/",
     "/nav.html",

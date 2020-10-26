@@ -68,12 +68,25 @@ function loadTeam() {
                             <div class="card-content">
                                 <h6>${team.name}</h6>
                             </div>
-                            <button class="waves-effect waves-light btn" id="add">Favorite</button>
+                            <button class="waves-effect waves-light btn add" id="${team.id}">Favorite</button>
                         </div>
                 </div>`
             )
         })
         document.getElementById('team').innerHTML = placeTeam.join('')
+
+        let saveBtn = document.querySelectorAll('.add');
+        saveBtn.forEach(button => {
+            button.onclick = () => {
+                console.log('favorite ditambahkan.')
+                const id = parseInt(button.id);
+                teams.forEach((team) => {
+                    if (team.id === id) {
+                        saveTeams(team)
+                    }
+                })
+            }
+        })
         console.log(placeTeam)
     }).catch((error) => {
         console.log(error)
@@ -81,24 +94,37 @@ function loadTeam() {
 }
 
 function getFavoriteTeam() {
-    getAll().then((team) => {
-        console.log(team)
+    getAll().then((clubs) => {
+        console.log(clubs)
 
         let favHtml = ''
-        team.forEach((team) => {
+        clubs.forEach((club) => {
             favHtml +=
                 `<div class="col s12 m6 l4">
                         <div class="card">
                             <div class="card-image">
-                                <img src="${team.crestUrl}">
+                                <img src="${club.crestUrl}">
                             </div>
                             <div class="card-content">
-                                <h6>${team.name}</h6>
+                                <h6>${club.name}</h6>
                             </div>
-                            <btn class="waves-effect waves-light btn" id="delete">Delete</btn>
+                            <btn class="waves-effect waves-light btn delete" id="${club.id}">Delete</btn>
                         </div>
                 </div>`
         })
         document.getElementById('favorite').innerHTML = favHtml
+
+        let deleteBtn = document.querySelectorAll('.delete');
+        deleteBtn.forEach(button => {
+            button.onclick = () => {
+                console.log('favorite dihapus.')
+                const id = parseInt(button.id);
+                clubs.forEach((club) => {
+                    if (club.id === id) {
+                        deleteTeams(club)
+                    }
+                })
+            }
+        })
     })
 }

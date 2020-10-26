@@ -7,7 +7,7 @@ if ('serviceWorker' in navigator) {
 
 function serviceWorkerRegister() {
     return navigator.serviceWorker
-        .register('service-worker.js')
+        .register('/service-worker.js')
         .then((registration) => {
             console.log('Pendaftaran ServiceWorker berhasil')
             return registration
@@ -26,6 +26,8 @@ function requestPermisson() {
             } else if (response === 'default') {
                 console.error('Pengguna menutup kotak dialog perminataan ijin.')
                 return
+            } else {
+                console.log('fitur notifikasi diijinkan')
             }
 
             if ('PushManager' in window) {
@@ -34,11 +36,11 @@ function requestPermisson() {
                         .subscribe({
                             userVisibleOnly: true,
                             applicationServerKey: urlBase64ToUint8Array(
-                                '<Appkey>'
+                                'BKfpvDR_nqJ6pw9HKLS7g5rc8Jf5dx__TAgcppAAXw6lUwgGKODXBqFhoq9kuJj_nDzIcjc1wuMaRFDCYYXRBUQ'
                             ),
                         })
                         .then((subscribe) => {
-                            console.log('Berhasil subscribe dengan endpoint : ', subscride.endpoint)
+                            console.log('Berhasil subscribe dengan endpoint : ', subscribe.endpoint)
                             console.log(
                                 'berhasil melakukan subscribe dengan p256dh key: ',
                                 btoa(
@@ -56,14 +58,36 @@ function requestPermisson() {
                                 )
                             )
                         })
-                        .catch((e) => {
-                            console.error('tidak dapat melakukan sunscribe', e.message)
+                        .catch((error) => {
+                            console.error(error.message)
                         })
                 })
             }
         })
     }
 }
+
+self.addEventListener('push', function (event) {
+    let body;
+    if (event.data) {
+        body = event.data.text();
+    } else {
+        body = 'Push message no payload';
+    }
+    let options = {
+        body: body,
+        icon: 'img/notification.png',
+        vibrate: [100, 50, 100],
+        data: {
+            dateOfArrival: Date.now(),
+            primaryKey: 1
+        }
+    };
+    event.waitUntil(
+        self.registration.showNotification('Push Notification', options)
+    );
+});
+
 
 
 function urlBase64ToUint8Array(base64String) {

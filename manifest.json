@@ -4,6 +4,7 @@
     "description": "Premiere League Foootball app",
     "start_url": "/index.html",
     "display": "standalone",
+    "gcm_sender_id" : "209657799911",
     "background_color": "#00897B",
     "theme_color": "#00897b",
     "icons": [{

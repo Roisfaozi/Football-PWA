@@ -45,6 +45,8 @@ function loadPage(page) {
                 loadContent();
             } else if (page === 'teams') {
                 loadTeam();
+            } else if (page === 'favorite') {
+                getFavoriteTeam();
             }
             if (this.status === 200) {
                 content.innerHTML = xhttp.responseText;
