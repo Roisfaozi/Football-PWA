@@ -13,11 +13,11 @@ function saveTeams(team) {
             let tx = db.transaction('teams', 'readwrite')
             let store = tx.objectStore('teams')
             console.log(team)
-            store.add(team)
+            store.put(team)
             return tx.complete
         })
         .then(() => {
-            console.log('article berhasil disimpan.')
+            M.toast({ html: 'Team Berhasil disimpan' })
         })
 }
 
@@ -31,7 +31,7 @@ function deleteTeams(club) {
             return tx.complete
         })
         .then(() => {
-            console.log('article berhasil dihapus.')
+            M.toast({ html: 'Team Berhasil dihapus' })
         })
 }
 
