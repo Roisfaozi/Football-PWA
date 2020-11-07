@@ -25,16 +25,30 @@
         </div>
     </nav>
     <!-- Akhir Navigasi -->
+
+    <!-- Loader -->
+    <div class="loader">
+        <img src="load-gif.gif" alt="">
+    </div>
+
     <div class="container" id="body-content">
 
     </div>
 
+    <script>
+        var loader = document.querySelector(".loader")
+
+        window.addEventListener("load", vanish);
+
+        function vanish() {
+            loader.classList.add("disppear");
+        }
+    </script>
     <script src="js/materialize.min.js" defer></script>
     <script src="js/idb.js" defer></script>
     <script src="js/db.js" defer></script>
     <script src="js/nav.js" defer></script>
     <script src="sw-reg.js" defer></script>
-    <script src="service-worker.js" defer></script>
     <script src="js/api.js" defer></script>
 
 </body>

@@ -122,6 +122,7 @@ function getFavoriteTeam() {
                 clubs.forEach((club) => {
                     if (club.id === id) {
                         deleteTeams(club)
+                        getFavoriteTeam()
                     }
                 })
             }
