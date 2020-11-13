@@ -13,7 +13,6 @@ function loadContent() {
         return response.json()
     }).then((data) => {
         let standings = data.standings[0].table
-        console.log(standings)
 
         let placeStanding = standings.map((standings) => {
             return (
@@ -87,7 +86,7 @@ function loadTeam() {
                 })
             }
         })
-        console.log(placeTeam)
+
     }).catch((error) => {
         console.log(error)
     })
@@ -95,7 +94,6 @@ function loadTeam() {
 
 function getFavoriteTeam() {
     getAll().then((clubs) => {
-        console.log(clubs)
 
         let favHtml = ''
         clubs.forEach((club) => {

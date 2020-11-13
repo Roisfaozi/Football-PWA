@@ -12,7 +12,6 @@ function saveTeams(team) {
         .then((db) => {
             let tx = db.transaction('teams', 'readwrite')
             let store = tx.objectStore('teams')
-            console.log(team)
             store.put(team)
             return tx.complete
         })
@@ -26,7 +25,6 @@ function deleteTeams(club) {
         .then((db) => {
             let tx = db.transaction('teams', 'readwrite')
             let store = tx.objectStore('teams')
-            console.log(club)
             store.delete(club.id)
             return tx.complete
         })

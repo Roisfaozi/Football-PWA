@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function loadNav() {
         const http = new XMLHttpRequest();
         http.onreadystatechange = function () {
-            if (this.readyState == 4) {
-                if (this.status != 200) return;
+            if (this.readyState === 4) {
+                if (this.status !== 200) return;
 
                 document.querySelectorAll(".topnav, .sidenav").forEach(function (elm) {
                     elm.innerHTML = http.responseText;
@@ -50,7 +50,6 @@ function loadPage(page) {
             }
             if (this.status === 200) {
                 content.innerHTML = xhttp.responseText;
-                console.log(content.innerHTML)
             } else if (this.status === 404) {
                 content.innerHTML = "<p>Halaman tidak ditemukan.</p>";
             } else {
@@ -59,6 +58,6 @@ function loadPage(page) {
         }
     };
 
-    xhttp.open("GET", "pages/" + page + ".html", true);
+    xhttp.open("GET", `pages/${page}.html`, true);
     xhttp.send();
 }

@@ -30,9 +30,3 @@ webPush.sendNotification(
     payload,
     options
 )
-    .then((status) => {
-        console.log(status)
-    })
-    .catch((error) => {
-        console.log(error)
-    })

@@ -1,13 +1,12 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js')
 
-if (workbox) {
-    console.log(`Workbox berhasil dimuat`)
-} else {
-    console.log(`Workbox gagal dimuat`)
-}
+
 
 workbox.precaching.precacheAndRoute([
     { url: '/nav.html', revision: '1' },
+    { url: '/pages/home.html', revision: '1' },
+    { url: '/pages/teams.html', revision: '1' },
+    { url: '/pages/favorite.html', revision: '1' },
     { url: '/index.html', revision: '1' },
     { url: '/css/materialize.min.css', revision: '1' },
     { url: '/css/custom.css', revision: '1' },
